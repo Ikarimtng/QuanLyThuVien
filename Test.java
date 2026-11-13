@@ -1,16 +1,15 @@
 import java.time.Year;
 import java.util.ArrayList;
 
-// Lớp Sach (không dùng public vì chung file với lớp Test)
+ 
 class Sach {
-    // Yêu cầu 1: tất cả thuộc tính khai báo private
+
     private String maSach;
     private String tieuDe;
     private String tacGia;
     private int namXuatBan;
     private int soLuong;
 
-    // Yêu cầu 4: constructor đầy đủ tham số
     public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
@@ -19,7 +18,7 @@ class Sach {
         setSoLuong(soLuong);
     }
 
-    // Yêu cầu 2: getters
+
     public String getMaSach() {
         return maSach;
     }
@@ -40,7 +39,6 @@ class Sach {
         return soLuong;
     }
 
-    // Yêu cầu 2: setters
     public void setMaSach(String maSach) {
         this.maSach = maSach;
     }
@@ -53,7 +51,6 @@ class Sach {
         this.tacGia = tacGia;
     }
 
-    // Yêu cầu 3: namXuatBan phải > 0 và không lớn hơn năm hiện tại
     public void setNamXuatBan(int namXuatBan) {
         int currentYear = Year.now().getValue();
         if (namXuatBan > 0 && namXuatBan <= currentYear) {
@@ -63,7 +60,6 @@ class Sach {
         }
     }
 
-    // Yêu cầu 3: soLuong không được âm
     public void setSoLuong(int soLuong) {
         if (soLuong >= 0) {
             this.soLuong = soLuong;
@@ -98,12 +94,10 @@ public class Test {
             s.hienThiThongTin();
         }
 
-        // Kiểm tra getters / setters
         System.out.println("Tiêu đề sách 1: " + s1.getTieuDe());
         s1.setTieuDe("Lập trình Java nâng cao");
         s1.setSoLuong(15);
 
-        // Kiểm tra ràng buộc dữ liệu (báo lỗi, giữ nguyên giá trị cũ)
         s2.setNamXuatBan(3000);
         s2.setSoLuong(-5);
 
